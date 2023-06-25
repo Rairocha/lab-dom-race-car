@@ -7,6 +7,25 @@ window.onload = function () {
   });
 
   function startGame() {
-    console.log("start game");
+    let game = new Game()
+    game.start();
+    
+    document.onkeydown = ((e) => {
+      if (e.key === "ArrowLeft") {
+        game.player.directionX-= .2
+      }
+      if (e.key === "ArrowRight") {
+        game.player.directionX += .2
+      }
+      if (e.key === "ArrowUp") {
+        game.player.directionY -= .2
+      }
+      if (e.key === "ArrowDown") {
+        game.player.directionY += .2
+      }
+      addEventListener("keyup", (event) => {game.player.directionX=0;game.player.directionY=0;})
+    })
+
   }
+  
 };
